@@ -13,7 +13,7 @@ public class NoteBook {
 		ImageNote note = new ImageNote(title);
 		return insertNote(folderName,note);
 	}
-	public ArrayList<Folder> getFolder(){
+	public ArrayList<Folder> getFolders(){
 		return folders;
 	}
 	public boolean insertNote(String folderName,Note note) {
@@ -23,6 +23,7 @@ public class NoteBook {
 		}
 		if(f==null) {
 			f = new Folder(folderName);
+			folders.add(f);
 		}
 		for(Note n:f.getNotes()) {
 			if(n.equals(note)) {
