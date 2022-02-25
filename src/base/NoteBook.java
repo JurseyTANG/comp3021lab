@@ -26,7 +26,7 @@ public class NoteBook {
 			folders.add(f);
 		}
 		for(Note n:f.getNotes()) {
-			if(n.equals(note)) {
+			if(note.getTitle().equals(n.getTitle())){
 				System.out.println("Creating note "+note.getTitle()+" under folder "+folderName+" failed");
 				return false;
 			}
