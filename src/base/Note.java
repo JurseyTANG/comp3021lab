@@ -1,6 +1,6 @@
 package base;
 import java.util.Date;
-public class Note {
+public class Note implements Comparable<Note>{
 	private String title;
 	private Date date;
 	public Note(String t) {
@@ -9,7 +9,10 @@ public class Note {
 	}
 	public String getTitle() {return title;
 	}
-
+	public Date getDate() {return date;}
+	public String toString() {
+		return date.toString()+'\t'+title;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -32,5 +35,11 @@ public class Note {
 		} else if (!title.equals(other.title))
 			return false;
 		return true;
+	}
+	@Override
+	public int compareTo(Note o) {
+		if(o.getDate().compareTo(this.date)>0) {return 1;}
+		else if(o.getDate().compareTo(this.date)<0) {return -1;}
+		else {return 0;}
 	}
 }
