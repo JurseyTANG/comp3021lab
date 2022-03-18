@@ -1,8 +1,9 @@
 package base;
 import java.util.Date;
-public class Note implements Comparable<Note>{
+public class Note implements Comparable<Note>,java.io.Serializable{
 	private String title;
 	private Date date;
+	private static final long serialVersionUID=1L;
 	public Note(String t) {
 		this.title=t;
 		this.date = new Date(System.currentTimeMillis());
